@@ -1,21 +1,31 @@
 https://www.rust-lang.org/learn/get-started
+https://www.rust-lang.org/learn
+
+https://doc.rust-lang.org/std/prelude/index.html
 
 1.72.1
 1.67.1 (released 2023-02-09)
 
+--------------------------------
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 --------------------------------
 cargo --version
 rustc --version
-rustc main.rs
 rustup update
 rustup self uninstall
 --------------------------------
 
-
 cargo new hello-rust
+cargo new --vcs=git
+cargo new --help
+cargo doc --open
+
 cargo add ferris-says
 
-https://www.rust-lang.org/learn
+cargo build
+cargo build --release
+
+rustc main.rs
+
+cargo run
 
