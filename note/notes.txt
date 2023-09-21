@@ -1,0 +1,21 @@
+https://www.rust-lang.org/learn/get-started
+
+1.72.1
+1.67.1 (released 2023-02-09)
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+--------------------------------
+cargo --version
+rustc --version
+rustc main.rs
+rustup update
+rustup self uninstall
+--------------------------------
+
+
+cargo new hello-rust
+cargo add ferris-says
+
+https://www.rust-lang.org/learn
+
