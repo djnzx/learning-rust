@@ -1,5 +1,6 @@
 https://www.rust-lang.org/learn/get-started
 https://www.rust-lang.org/learn
+https://doc.rust-lang.org/book/ch06-00-enums.html
 
 https://doc.rust-lang.org/std/prelude/index.html
 
@@ -28,4 +29,3 @@ cargo build --release
 rustc main.rs
 
 cargo run
-
