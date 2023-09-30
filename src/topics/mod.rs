@@ -12,6 +12,6 @@ pub mod topic09random;
 pub mod topic10enum;
 pub mod topic11option;
 pub mod topic12collections;
-pub mod topic13;
+pub mod topic13hashmap;
 pub mod topic14;
 pub mod topic15;

@@ -1,6 +1,8 @@
 https://www.rust-lang.org/learn/get-started
 https://www.rust-lang.org/learn
-https://doc.rust-lang.org/book/ch06-00-enums.html
+https://doc.rust-lang.org/nomicon/vec/vec.html
+
+https://doc.rust-lang.org/book/ch09-00-error-handling.html
 
 https://doc.rust-lang.org/std/prelude/index.html
 

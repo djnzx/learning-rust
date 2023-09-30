@@ -3,8 +3,8 @@ use std::ops::Add;
 use rand::Rng;
 
 mod topics;
-use topics::topic12collections::*;
+use topics::topic05strings::*;
 
 fn main() {
-    playground12()
+    topics::topic13hashmap::playground()
 }
