@@ -16,13 +16,9 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 use std::fmt::Display;
 
-fn longest_with_an_announcement<'a, T>(
-    x: &'a str,
-    y: &'a str,
-    ann: T,
-) -> &'a str
-    where
-        T: Display,
+fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+where
+    T: Display,
 {
     println!("Announcement! {}", ann);
     if x.len() > y.len() {
@@ -60,7 +56,6 @@ pub fn playground() {
     // `x` does not live long enough
     // `x` is disappeared, so `r` - also
     // println!("r: {}", r);
-
 
     let r;
     let x = 5;

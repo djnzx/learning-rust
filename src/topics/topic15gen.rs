@@ -61,7 +61,7 @@ fn playground1() {
 
 struct Tuple2<A, B> {
     a: A,
-    b: B
+    b: B,
 }
 
 enum MyOption<A> {
@@ -175,9 +175,9 @@ fn function1<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {
 
 /// better syntax ??? hm...
 fn function2<T, U>(t: &T, u: &U) -> i32
-    where
-        T: Display + Clone,
-        U: Clone + Debug,
+where
+    T: Display + Clone,
+    U: Clone + Debug,
 {
     todo!()
 }
@@ -201,7 +201,8 @@ fn returns_summarizable(switch: bool) -> impl Summary {
             headline: String::from("Penguins win the Stanley Cup Championship!"),
             location: String::from("Pittsburgh, PA, USA"),
             author: String::from("Iceburgh"),
-            content: String::from("The Pittsburgh Penguins once again are the best \
+            content: String::from(
+                "The Pittsburgh Penguins once again are the best \
                  hockey team in the NHL.",
             ),
         }
@@ -248,31 +249,17 @@ pub fn playground2() {
     let largest = max(&xs);
     println!("The largest number is {}", largest);
 
-    let t1 = Tuple2 {
-        a: 1,
-        b: "hello"
-    };
+    let t1 = Tuple2 { a: 1, b: "hello" };
 
-    let t2: Tuple2<f64, Tuple2<i32, &str>> = Tuple2 {
-        a: 3.14,
-        b: t1
-    };
+    let t2: Tuple2<f64, Tuple2<i32, &str>> = Tuple2 { a: 3.14, b: t1 };
 
-    let p1: Point<f32> = Point {
-        x: 1.0,
-        y: 2.0
-    };
+    let p1: Point<f32> = Point { x: 1.0, y: 2.0 };
     let x_val = p1.x;
     let x_ref = p1.x();
     let d1 = p1.distance_from_origin();
 
-    let p2 = Point::new(1f32,2f32);
-    let l2 =p2.distance_from_origin();
-
-
-
-
-
+    let p2 = Point::new(1f32, 2f32);
+    let l2 = p2.distance_from_origin();
 }
 
 pub fn playground() {

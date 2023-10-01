@@ -1,6 +1,6 @@
-use std::ops::{Range, RangeInclusive};
 use rand::prelude::ThreadRng;
 use rand::Rng;
+use std::ops::{Range, RangeInclusive};
 
 fn playground() {
     /// excluding

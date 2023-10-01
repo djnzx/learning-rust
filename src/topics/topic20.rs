@@ -1,3 +1,1 @@
-pub fn playground() {
-
-}
+pub fn playground() {}

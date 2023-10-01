@@ -1,7 +1,6 @@
 use std::io::Stdin;
 
 fn playground() {
-
     /// step 1. declare mutable string
     let mut guess = String::new();
 
@@ -13,5 +12,4 @@ fn playground() {
 
     /// step 4. handle errors (just text for exception)
     let x: usize = r.expect("Failed to read line");
-
 }
