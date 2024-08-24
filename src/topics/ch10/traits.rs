@@ -1,4 +1,4 @@
-use std::fmt::{Debug, Display};
+use std::fmt::{format, Debug, Display};
 
 /// any vector
 fn max(xs: &Vec<i32>) -> &i32 {
@@ -98,7 +98,7 @@ impl Point<f32> {
     }
 }
 
-/// don't we need to use generic `A` here ???, because self is of type `A`
+/// just a Java interface or Scala trait
 pub trait Summary {
     fn summarize_author(&self) -> String;
     fn summarize(&self) -> String {
@@ -113,8 +113,16 @@ pub struct NewsArticle {
     pub content: String,
 }
 
-//   Summary<NewsArticle>
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+// NewsArticle implements Summary
 impl Summary for NewsArticle {
+    // typeof(self) = NewsArticle
     fn summarize_author(&self) -> String {
         format!("@{}", self.author)
     }
@@ -124,15 +132,9 @@ impl Summary for NewsArticle {
     }
 }
 
-pub struct Tweet {
-    pub username: String,
-    pub content: String,
-    pub reply: bool,
-    pub retweet: bool,
-}
-
-//   Summary<Tweet>
+// Tweet implements Summary
 impl Summary for Tweet {
+    // type of (self) = Tweet
     fn summarize_author(&self) -> String {
         format!("@{}", self.username)
     }
@@ -143,19 +145,26 @@ impl Summary for Tweet {
 }
 
 /// pull default impl
+/// looks like a type class, behavior is already attached to the type
 impl Summary for u8 {
     fn summarize_author(&self) -> String {
-        String::from("@u8")
+        String::from(format!("@u8:{self}"))
     }
 }
 
-/// why can't we use const in format ???
-pub fn notify_v1(item: &impl Summary) {
+#[test]
+fn test1() {
+    let x = 123u8;
+    dbg!(x.summarize_author());
+}
+
+/// trait bounds (Scala)
+pub fn notify_v2<A: Summary>(item: A) {
     println!("Breaking news! {}", item.summarize());
 }
 
-/// trait bounds
-pub fn notify_v2<A: Summary>(item: A) {
+/// trait bounds (Rust)
+pub fn notify_v1(item: &impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
 
@@ -176,6 +185,7 @@ fn function1<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {
 /// better syntax ??? hm...
 fn function2<T, U>(t: &T, u: &U) -> i32
 where
+    // haskell-ish
     T: Display + Clone,
     U: Clone + Debug,
 {
@@ -194,10 +204,10 @@ fn returns_summarizable_v1() -> impl Summary {
 fn returns_summarizable_v2<A: Summary>() -> A {
     todo!()
 }
-/// NOT covariant, invariant !!!
-fn returns_summarizable(switch: bool) -> impl Summary {
-    if switch {
-        NewsArticle {
+/// returning type is NOT covariant, invariant !!!
+fn returns_summarizable(switch: u8) -> impl Summary {
+    match switch {
+        1 => NewsArticle {
             headline: String::from("Penguins win the Stanley Cup Championship!"),
             location: String::from("Pittsburgh, PA, USA"),
             author: String::from("Iceburgh"),
@@ -205,16 +215,22 @@ fn returns_summarizable(switch: bool) -> impl Summary {
                 "The Pittsburgh Penguins once again are the best \
                  hockey team in the NHL.",
             ),
-        }
-    } else {
-        panic!();
-        // Tweet {
+        },
+        // 2 => Tweet {
         //     username: String::from("horse_ebooks"),
         //     content: String::from("of course, as you probably already know, people"),
         //     reply: false,
         //     retweet: false,
-        // }
+        // },
+        // 3 => 123u8,
+        _ => panic!(),
     }
+}
+
+/// TODO: how to print "impl Summary"
+#[test]
+fn test21() {
+    let x = returns_summarizable(1);
 }
 
 struct Pair<T> {
@@ -228,6 +244,7 @@ impl<T> Pair<T> {
     }
 }
 
+/// for any T which has Display + PartialOrd
 impl<T: Display + PartialOrd> Pair<T> {
     fn cmp_display(&self) {
         if self.x >= self.y {
@@ -238,11 +255,16 @@ impl<T: Display + PartialOrd> Pair<T> {
     }
 }
 
+// syntax to have `ToString` for any type has `Display`
 // impl<T: Display> ToString for T {
 //     fn to_string(&self) -> String {
 //         todo!()
 //     }
 // }
+
+fn f21() {
+    let x = 3.to_string();
+}
 
 pub fn playground2() {
     let xs = vec![34, 50, 25, 100, 65];

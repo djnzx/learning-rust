@@ -13,8 +13,6 @@ mod ch13;
 mod t101;
 pub mod topic08stdin;
 pub mod topic09random;
-pub mod topic15gen;
-pub mod topic16lifetimes;
 pub mod topic17testing;
 pub mod topic18closures;
 pub mod topic19iter;
