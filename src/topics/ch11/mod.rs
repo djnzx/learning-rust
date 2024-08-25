@@ -1,1 +1,9 @@
-
+mod basics_assertions;
+mod basics_panics;
+mod basics_privates;
+mod basics_structure;
+mod example_adder;
+mod example_greeting;
+mod example_rectangle;
+mod option_ignored;
+mod option_with_output;
