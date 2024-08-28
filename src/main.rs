@@ -21,11 +21,6 @@ fn main3() {
     println!("Hello!")
 }
 
-/// main can be Unit
-fn main2() {
-    topics::topic19iter::main()
-}
-
 /// main can be Result (Either)
 fn main1() -> Result<(), Box<dyn Error>> {
     let greeting_file = File::open("hello.txt")?;
