@@ -3,7 +3,6 @@ https://www.rust-lang.org/learn
 https://doc.rust-lang.org/nomicon/vec/vec.html
 https://doc.rust-lang.org/std/prelude/index.html
 https://doc.rust-lang.org/std/vec/struct.Vec.html
-https://doc.rust-lang.org/cargo/commands/cargo-tree.html
 https://doc.rust-lang.org/book
 https://doc.rust-lang.org/book/ch09-00-error-handling.html
 https://github.com/rust-lang/book
