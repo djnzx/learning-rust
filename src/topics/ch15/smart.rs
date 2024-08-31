@@ -4,8 +4,8 @@ use std::ops::Deref;
 /// Deref
 /// Drop - explicit destructor
 ///
-/// Box<A>
-/// Rc<A>
+/// Box<A> - just to put in heap
+/// Rc<A> - to share immutable data
 /// Ref<A>
 /// RefMut<A>
 /// RefCell<A>
@@ -101,8 +101,39 @@ fn hello(name: &str) {
     println!("Hello, {name}!");
 }
 
-#[test]
-fn code5() {}
+#[derive(Debug)]
+struct CustomSmartPointer {
+    data: String,
+}
+
+impl Drop for CustomSmartPointer {
+    // explicit destructor
+    fn drop(&mut self) {
+        println!("Dropping CustomSmartPointer with data `{}`!", self.data);
+    }
+}
 
 #[test]
-fn code6() {}
+fn drop_showcase() {
+    let c = CustomSmartPointer {
+        data: String::from("my stuff"),
+    };
+    let d = CustomSmartPointer {
+        data: String::from("other stuff"),
+    };
+    println!("CustomSmartPointers created.");
+}
+
+#[test]
+fn manual_early_release() {
+    let c = CustomSmartPointer {
+        data: String::from("some data"),
+    };
+    println!("CustomSmartPointer created.");
+    // not allowed
+    // c.drop();
+    drop(c);
+    println!("CustomSmartPointer dropped before the end of main.");
+    // can't do since there is no c anymore
+    // dbg!(c);
+}
