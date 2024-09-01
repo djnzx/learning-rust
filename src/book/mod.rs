@@ -14,6 +14,8 @@ mod ch14;
 mod ch15;
 mod ch16;
 mod ch17;
+mod ch18;
+mod ch19;
 mod regex;
 mod sandbox;
 mod t101;

@@ -1,24 +1,3 @@
-https://www.rust-lang.org/learn
-https://www.rust-lang.org/learn/get-started
-
-https://doc.rust-lang.org/nomicon/index.html
-https://doc.rust-lang.org/nomicon/vec/vec.html
-
-https://doc.rust-lang.org/std/prelude/index.html
-https://doc.rust-lang.org/std/vec/struct.Vec.html
-
-https://doc.rust-lang.org/book
-https://doc.rust-lang.org/book/ch09-00-error-handling.html
-https://doc.rust-lang.org/book/ch14-00-more-about-cargo.html
-
-https://doc.rust-lang.org/cargo/index.html
-https://doc.rust-lang.org/cargo/reference/profiles.html
-https://doc.rust-lang.org/cargo/commands/cargo-tree.html
-
-https://github.com/rust-lang/book
-https://habr.com/ru/articles/770314/
-https://security-union.github.io/rust-vs-java/
-
 1.67.1 (2023-02-09)
 1.80.1 (2024-08-08)
 

@@ -1,5 +1,7 @@
 #[test]
 fn playground() {
+    type A = (i32, f64, bool, String);
+
     /// inferred
     let t = (1, 2.5, true, "hello");
     /// explicit

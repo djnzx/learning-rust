@@ -11,6 +11,7 @@ ferris-says = "0.3.1"
 time = "0.3.36"
 regex = "1.10.6"
 lazy_static = "1.5.0"
+syn = "2.0.77"
 
 [profile.release]
 panic = 'abort' # don't worry about memory and stacktrace

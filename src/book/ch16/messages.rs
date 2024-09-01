@@ -5,7 +5,7 @@ use std::time::Duration;
 #[test]
 fn code1() {
     /// multiple producers, ONE consumer
-    let (tx, rx) = mpsc::channel();
+    let (tx, rx) = mpsc::channel::<String>();
 
     thread::spawn(move || {
         let val = String::from("hi");
@@ -14,7 +14,7 @@ fn code1() {
         // no `val` here
     });
 
-    // without sending it will hang forever waiting
+    // without sending, it will hang forever waiting
     let received: String = rx.recv().unwrap();
     println!("Got: {received}");
 }

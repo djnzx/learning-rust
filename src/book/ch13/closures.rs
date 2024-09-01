@@ -8,8 +8,36 @@ enum ShirtColor {
     Blue,
 }
 
+/// struct with names fields
 struct Inventory {
     shirts: Vec<ShirtColor>,
+}
+
+/// structs with unnamed fields
+struct Inventory2(Vec<ShirtColor>);
+
+/// just an alias
+type Inventory3 = (Vec<ShirtColor>, String);
+
+fn go(x: Inventory3) {}
+
+fn test11() {
+    go((vec![], "hi".to_string()))
+}
+
+#[test]
+fn test0() {
+    /// strict
+    let x = Inventory { shirts: vec![] };
+    let s1 = x.shirts;
+
+    /// less strict
+    let y = Inventory2(vec![]);
+    let s2 = y.0;
+
+    /// even more relaxed
+    let z1: (Vec<i32>, String) = (vec![], "abc".to_string());
+    let z2: Inventory3 = (vec![], "abc".to_string());
 }
 
 impl Inventory {

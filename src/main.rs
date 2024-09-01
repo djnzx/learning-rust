@@ -1,10 +1,10 @@
+use book::ch02;
 use rand::Rng;
 use std::error::Error;
 use std::fmt::Display;
 use std::ops::Add;
-use topics::ch02;
 
-mod topics;
+mod book;
 
 /// main can be unit
 fn main() {
