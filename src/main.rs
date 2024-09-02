@@ -5,6 +5,7 @@ use std::fmt::Display;
 use std::ops::Add;
 
 mod book;
+mod usecases;
 
 /// main can be unit
 fn main() {

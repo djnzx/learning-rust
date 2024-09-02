@@ -17,7 +17,11 @@ https://github.com/rust-lang/book
 https://doc.rust-lang.org/rust-by-example/index.html
 https://github.com/rust-lang/rust-by-example
 
-### 4. build tool
+### 4. by practice
+
+https://practice.course.rs
+
+### 5. build tool
 
 https://doc.rust-lang.org/cargo/index.html
 https://doc.rust-lang.org/cargo/reference/profiles.html
