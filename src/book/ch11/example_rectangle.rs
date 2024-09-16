@@ -19,14 +19,8 @@ mod data {
 
     use lazy_static::lazy_static;
     lazy_static! {
-        pub static ref larger: Rectangle = Rectangle {
-            width: 8,
-            height: 7,
-        };
-        pub static ref smaller: Rectangle = Rectangle {
-            width: 5,
-            height: 1,
-        };
+        pub static ref larger: Rectangle = Rectangle { width: 8, height: 7 };
+        pub static ref smaller: Rectangle = Rectangle { width: 5, height: 1 };
     }
 }
 

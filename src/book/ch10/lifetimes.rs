@@ -77,9 +77,7 @@ struct Excerpt<'a> {
 fn test4() {
     let novel = String::from("Call me Ishmael. Some years ago...");
     let first_sentence = novel.split('.').next().unwrap();
-    let ex = Excerpt {
-        part: first_sentence,
-    };
+    let ex = Excerpt { part: first_sentence };
 }
 
 trait ImportantExcerpt<'a> {

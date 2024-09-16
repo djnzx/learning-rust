@@ -18,9 +18,7 @@ pub struct DraftPost {
 
 impl Post {
     pub fn new() -> DraftPost {
-        DraftPost {
-            content: String::new(),
-        }
+        DraftPost { content: String::new() }
     }
 
     pub fn content(&self) -> &str {
@@ -36,9 +34,7 @@ impl DraftPost {
 
     /// it doesn't mutate, it returns a new type
     pub fn request_review(self) -> PendingReviewPost {
-        PendingReviewPost {
-            content: self.content,
-        }
+        PendingReviewPost { content: self.content }
     }
 }
 
@@ -48,9 +44,7 @@ pub struct PendingReviewPost {
 
 impl PendingReviewPost {
     pub fn approve(self) -> Post {
-        Post {
-            content: self.content,
-        }
+        Post { content: self.content }
     }
 }
 #[test]

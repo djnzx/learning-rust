@@ -6,9 +6,14 @@ fn test1() {
     let is_win = cfg!(target_os = "windows");
 
     let output = if is_win {
-        Command::new("cmd").args(["/C", "echo hello"]).output()
+        Command::new("cmd")
+            .args(["/C", "echo hello"])
+            .output()
     } else {
-        Command::new("sh").arg("-c").arg("ls -la").output()
+        Command::new("sh")
+            .arg("-c")
+            .arg("ls -la")
+            .output()
     };
 
     let output = output.expect("failed to execute process");

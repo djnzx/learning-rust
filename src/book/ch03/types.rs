@@ -34,6 +34,11 @@ fn inc(x: u8) {
     println!("{x}");
 }
 
+// #[test]
+fn one() {
+    let x = panic!();
+}
+
 #[test]
 fn primitives() {
     /// - unsigned: u8 / u16 / u32 / u64 / u128

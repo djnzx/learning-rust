@@ -12,9 +12,5 @@ fn greeting_contains_1() {
 #[test]
 fn greeting_contains_customizable_error_message() {
     let g = greeting("Carol");
-    assert!(
-        g.contains("Carol"),
-        "Greeting did not contain name, value was `{}`",
-        g
-    );
+    assert!(g.contains("Carol"), "Greeting did not contain name, value was `{}`", g);
 }

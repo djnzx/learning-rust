@@ -51,7 +51,8 @@ where
         };
 
         // actually we can't check that functionality
-        msg.iter().for_each(|msg| self.messenger.send(msg));
+        msg.iter()
+            .for_each(|msg| self.messenger.send(msg));
 
         // if percentage_of_max >= 1.0 {
         //     self.messenger.send("Error: You are over your quota!");
@@ -90,7 +91,9 @@ mod test_design {
             // self.sent_messages.push(String::from(message));
 
             // explicit borrow works well
-            self.sent_messages.borrow_mut().push(String::from(message));
+            self.sent_messages
+                .borrow_mut()
+                .push(String::from(message));
 
             // will panic, since we try to mutate twice
             // let mut one_borrow = self.sent_messages.borrow_mut();
@@ -108,7 +111,13 @@ mod test_design {
 
         limit_tracker.set_value(80);
 
-        assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
+        assert_eq!(
+            mock_messenger
+                .sent_messages
+                .borrow()
+                .len(),
+            1
+        );
         assert_eq!(
             mock_messenger.sent_messages.borrow()[0], //.iter().next().unwrap(),
             "Warning: You've used up over 75% of your quota!"

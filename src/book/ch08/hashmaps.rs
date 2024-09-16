@@ -13,7 +13,9 @@ fn test1() {
     for (key, value) in &scores {
         println!("{key}: {value}");
     }
-    scores.entry(String::from("Red")).or_insert(50);
+    scores
+        .entry(String::from("Red"))
+        .or_insert(50);
 }
 
 #[test]

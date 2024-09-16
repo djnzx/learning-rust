@@ -29,7 +29,9 @@ where
     T: Draw,
 {
     pub fn run(&self) {
-        self.components.iter().for_each(|c| c.draw());
+        self.components
+            .iter()
+            .for_each(|c| c.draw());
     }
 }
 
@@ -76,11 +78,7 @@ fn example() {
             Box::new(SelectBox {
                 width: 75,
                 height: 10,
-                options: vec![
-                    String::from("Yes"),
-                    String::from("Maybe"),
-                    String::from("No"),
-                ],
+                options: vec![String::from("Yes"), String::from("Maybe"), String::from("No")],
             }),
             Box::new(Button {
                 width: 50,

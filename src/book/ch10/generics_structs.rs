@@ -53,10 +53,7 @@ impl Point<f32> {
 
 impl<X1, Y1> Point2<X1, Y1> {
     fn mixup<X2, Y2>(self, other: Point2<X2, Y2>) -> Point2<X1, Y2> {
-        Point2 {
-            x: self.x,
-            y: other.y,
-        }
+        Point2 { x: self.x, y: other.y }
     }
 }
 

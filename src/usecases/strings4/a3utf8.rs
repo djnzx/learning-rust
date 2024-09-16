@@ -1,54 +1,34 @@
-use ferris_says::say;
-use std::io::BufWriter;
-use std::num::ParseIntError;
 use std::str::{Bytes, Chars};
 
-/// growable
-/// mutable
-/// owned
-/// UTF-8 encoded string
-
 #[test]
-fn creating() {
-    /// literal, in the stack (string pool)
-    let s1: &str = "abc";
-    /// heap
-    let s2: String = String::from("hello");
-
-    /// print macro
-    println!("{}", s1);
-    /// print macro
-    println!("{s1}");
-    /// debug
-    dbg!(s2);
-}
-
-#[test]
-fn mutable() {
-    let mut s3 = String::from("hello");
-    s3.push_str(", world!");
-    dbg!(s3);
-}
-
 fn slicing() {
     let s = String::from("hello world");
     /// slicing doesn't take a memory
-    let hello1 = &s[0..5];
-    let hello2 = &s[..5];
-    let world = &s[6..11];
-    let world = &s[6..];
-    let whole = &s[..];
+    let hello = &s[0..5]; // hello
+    println!("{}", hello);
+
+    let hello2 = &s[..5]; // hello
+    println!("{}", hello2);
+
+    let world = &s[6..11]; // world
+    println!("{}", world);
+
+    let world2 = &s[6..]; // world
+    println!("{}", world2);
+
+    let whole = &s[..]; // hello world
+    println!("{}", whole);
 }
-
 #[test]
-fn functions() {
-    let stdout = std::io::stdout();
-    let message = String::from("Hello fellow Rustaceans!");
-    let width = message.chars().count();
-    let mut writer = BufWriter::new(stdout.lock());
-    say(&message, width, &mut writer).unwrap();
+fn range_syntax() {
+    let r1 = 1..5;
+    let r2 = 1..=5;
+    let r3 = 3..;
+    let r4 = ..5;
+    let r5 = ..=5;
 
-    let trimmed = "  Hello  ".trim(); // "Hello"
+    r1.for_each(|i| print!("{} ", i)); // 1 2 3 4
+                                       // r3.for_each(|i| print!("{} ", i)); // will hang
 }
 
 fn parsing() {
@@ -169,8 +149,6 @@ fn utf8_3bytes() {
                   // ['न', 'म', 'स', '्',       'त', 'े'      ]
     dbg!(&bytes); // [224, 164, 168,    224, 164, 174,    224, 164, 184,    224, 165, 141,    224, 164, 164,    224, 165, 135]
                   //  -------------     -------------     -------------     -------------     -------------     -------------
-
-    dbg!(hello.len()); // 18
 }
 
 fn bytes(c: char) -> Vec<u8> {

@@ -69,10 +69,7 @@ impl Rectangle {
 
 #[test]
 fn playground2() {
-    let mut r = Rectangle {
-        width: 10,
-        height: 10,
-    };
+    let mut r = Rectangle { width: 10, height: 10 };
 
     println!("The area of the rectangle is {} square pixels.", r.area());
     let sq = Rectangle::square(3);

@@ -183,18 +183,9 @@ struct Rectangle {
 pub fn use_as_fn_once() {
     // to sort, list must be mutable
     let mut list = [
-        Rectangle {
-            width: 10,
-            height: 1,
-        },
-        Rectangle {
-            width: 3,
-            height: 5,
-        },
-        Rectangle {
-            width: 7,
-            height: 12,
-        },
+        Rectangle { width: 10, height: 1 },
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 },
     ];
 
     // The reason sort_by_key is defined to take an FnMut closure is that
@@ -211,18 +202,9 @@ pub fn use_as_fn_once() {
 #[test]
 pub fn use_as_fn_mut1a() {
     let mut list = [
-        Rectangle {
-            width: 10,
-            height: 1,
-        },
-        Rectangle {
-            width: 3,
-            height: 5,
-        },
-        Rectangle {
-            width: 7,
-            height: 12,
-        },
+        Rectangle { width: 10, height: 1 },
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 },
     ];
 
     let mut sort_operations: Vec<String> = vec![];
@@ -239,18 +221,9 @@ pub fn use_as_fn_mut1a() {
 #[test]
 pub fn use_as_fn_mut1b() {
     let mut list = [
-        Rectangle {
-            width: 10,
-            height: 1,
-        },
-        Rectangle {
-            width: 3,
-            height: 5,
-        },
-        Rectangle {
-            width: 7,
-            height: 12,
-        },
+        Rectangle { width: 10, height: 1 },
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 },
     ];
 
     let mut sort_operations: Vec<&str> = vec![];
@@ -268,18 +241,9 @@ pub fn use_as_fn_mut1b() {
 #[test]
 pub fn use_as_fn_mut2() {
     let mut list = [
-        Rectangle {
-            width: 10,
-            height: 1,
-        },
-        Rectangle {
-            width: 3,
-            height: 5,
-        },
-        Rectangle {
-            width: 7,
-            height: 12,
-        },
+        Rectangle { width: 10, height: 1 },
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 },
     ];
 
     let mut count = 0;

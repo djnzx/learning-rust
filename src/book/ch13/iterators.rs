@@ -65,9 +65,15 @@ fn another_iterator() {
 #[test]
 fn consuming_explicitly() {
     let v1 = vec![1, 2, 3];
-    let it2 = v1.iter().map(|x| x + 1).collect::<Vec<i32>>();
+    let it2 = v1
+        .iter()
+        .map(|x| x + 1)
+        .collect::<Vec<i32>>();
     // syntax to infer initial type
-    let it3 = v1.iter().map(|x| x + 1).collect::<Vec<_>>();
+    let it3 = v1
+        .iter()
+        .map(|x| x + 1)
+        .collect::<Vec<_>>();
 
     for x in it2 {
         println!("{}", x);
@@ -137,7 +143,10 @@ fn shoes_filtered_by_size_2(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
 
 fn shoes_filtered_by_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     // TODO: .iter() vs .into_iter()
-    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
+    shoes
+        .into_iter()
+        .filter(|s| s.size == shoe_size)
+        .collect()
 }
 
 #[test]

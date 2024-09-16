@@ -15,4 +15,7 @@ fn playground() {
 
     /// empty tuple = unit!
     let t: () = ();
+    let s = size_of_val(&t);
+    println!("{}", s);
+    assert_eq!(s, 0);
 }

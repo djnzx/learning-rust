@@ -7,6 +7,14 @@ fn overflow() {
     let k = 10 as u32 + x as u32;
 }
 
+// #[test]
+#[allow(arithmetic_overflow)]
+fn overflow2() {
+    let x = 1_u8;
+    let y = x - 2;
+    println!("{}", y)
+}
+
 #[test]
 fn overflow_handled() {
     let x = u8::checked_add(251_u8, 1);
