@@ -12,6 +12,8 @@ fn area3(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
+struct UnnamedFields(i32, String);
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
