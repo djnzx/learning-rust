@@ -15,9 +15,10 @@ fn rb1() {
     println!("The length of '{s1}' is {len}.");
 }
 
-fn change(some_string: &mut String) {
-    some_string.push_str(", world");
+fn change(s: &mut String) {
+    s.push_str(", world");
 }
+
 #[test]
 fn mutable_reference() {
     let mut s = String::from("hello");

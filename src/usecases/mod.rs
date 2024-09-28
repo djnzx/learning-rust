@@ -1,6 +1,8 @@
 mod a3formatting;
 mod boolean1;
+mod bypractice;
 mod datatypes;
+mod explorestd;
 mod math1;
 mod ownership;
 mod ranges1;
