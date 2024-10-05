@@ -1,3 +1,4 @@
+use std::fmt::{Debug, Formatter};
 use std::ops;
 use std::ops::Add;
 
@@ -137,8 +138,46 @@ fn code3() {
     assert_eq!(Tesla, Car + Electro);
 }
 
+struct Pair<A> {
+    x: A,
+    y: A,
+}
+
+impl<A> Pair<A> {
+    fn new(a: A, b: A) -> Pair<A> {
+        Pair { x: a, y: b }
+    }
+}
+
+//      these are requirements for the type A
+// Debug allows printing {:?}
+// PartialOrd allows comparing
+impl<A: Debug + PartialOrd + PartialEq> Pair<A> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {:?}", self.x);
+        } else {
+            println!("The largest member is y = {:?}", self.y);
+        }
+    }
+}
+
+#[derive(PartialOrd, PartialEq)]
+struct Unit(i32);
+
+/// custom Debug implementation
+impl Debug for Unit {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("Unit[i32:{}]", self.0))
+        //write!(f, "Unit[i32:{}]", self.0)
+    }
+}
+
 #[test]
-fn code4() {}
+fn code4() {
+    let p = Pair::new(Unit(1), Unit(192));
+    p.cmp_display();
+}
 
 #[test]
 fn code5() {}
