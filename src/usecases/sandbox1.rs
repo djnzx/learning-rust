@@ -1,5 +1,3 @@
-use syn::Expr::Range;
-
 #[test]
 fn code1() {
     let v1 = 251_u16 + 5; // type of '5' is inferred to align

@@ -1,4 +1,4 @@
-use std::iter::Map;
+use std::iter::{zip, Map};
 use std::slice::Iter;
 
 #[test]
@@ -56,7 +56,9 @@ fn iterator_sum() {
 fn another_iterator() {
     let v1 = vec![1, 2, 3];
     // looking on the signature, we can say, it just holds initial iterator + functions applied
-    let it2 = v1.iter().map(|x| x + 1);
+    let it2 = v1
+        .iter()
+        .map(|x| x + 1);
 
     for x in it2 {
         println!("{}", x);
@@ -116,7 +118,9 @@ fn iterator3() {
 #[test]
 fn iterator4() {
     let v1 = vec![1, 2, 3, 4, 5];
-    let it2: Map<Iter<i32>, fn(&i32) -> i32> = v1.iter().map(|x| x + 1);
+    let it2: Map<Iter<i32>, fn(&i32) -> i32> = v1
+        .iter()
+        .map(|x| x + 1);
     let collected: Vec<i32> = it2.collect();
     // dbg!(collected);
     assert_eq!(collected, vec![2, 3, 4, 5, 6]);
@@ -144,6 +148,7 @@ fn shoes_filtered_by_size_2(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
 fn shoes_filtered_by_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     // TODO: .iter() vs .into_iter()
     shoes
+        // .iter()
         .into_iter()
         .filter(|s| s.size == shoe_size)
         .collect()
@@ -168,5 +173,72 @@ fn filters_by_size() {
 
     let in_my_size = shoes_filtered_by_size(shoes, 10);
 
-    assert!(in_my_size.iter().all(|s| s.size == 10));
+    assert!(in_my_size
+        .iter()
+        .all(|s| s.size == 10));
+}
+
+#[test]
+fn test1() {
+    let shoes = vec![
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
+    ];
+
+    let all = shoes
+        .iter()
+        .all(|s| s.size >= 10);
+
+    let any = shoes // exists
+        .iter()
+        .any(|s| s.size == 10);
+}
+
+#[test]
+fn test_iter_vs_into_iter() {
+    let shoes = vec![
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
+    ];
+
+    // borrow and return: works with references &T
+    let xs = shoes.iter();
+    // borrow and return
+    let xs = shoes.iter();
+    // consume and does'nt return: works with data T
+    let xs = shoes.into_iter();
+    // will not compile
+    // let xs = shoes.iter();
+}
+
+#[test]
+fn test10() {
+    let ns = 1..10;
+    let ls = 'a'..;
+
+    let xs = ns.zip(ls);
+    // let qs = xs.unzip();
+    // xs.for_each(|(x, l)| println!("{}: {}", x, l));
+
+    // let xs = ns.into_iter().collect::<Vec<i32>>();
 }

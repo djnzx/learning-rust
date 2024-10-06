@@ -1,5 +1,4 @@
 use std::ops::Add;
-use syn::token::Dyn;
 
 struct A;
 struct S(A);
