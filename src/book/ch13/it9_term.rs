@@ -1,5 +1,0 @@
-// sum
-// count
-// all
-// any
-// ...
